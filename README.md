@@ -24,6 +24,8 @@ The documentation will have many endpoints, from berries to Evolution chain.
     Hidden Ability: Unnerve
     Native Generation: Kanto
     ```
+    
+    Nothin is currently returned from this function, just printed.
 
   * Call the *getStats* method to get a full list of Pokemon with they types and sum of their base stats. The user can also filter down to what Primary type they want by setting a PokeType as an argument
 
