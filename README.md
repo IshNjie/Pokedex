@@ -2,7 +2,7 @@ Pokedex - with PokeAPI
 ===
 
 Having fun with the PokeAPI - A script that allows the user to retrieve a Pokedex-like entry for a Pokemon. 
-Data supports Pokemon from Gen 1 to Gen 8, including Pokemon from the Sword and Sheild DLC
+Data supports Pokemon from Gen 1 to Gen 8, including Pokemon from the Sword and Shield DLC
 
 ## How we did it 
 
