@@ -4,12 +4,17 @@ Pokedex - with PokeAPI
 Having fun with the PokeAPI - A script that allows the user to retrieve a Pokedex-like entry for a Pokemon. 
 Data supports Pokemon from Gen 1 to Gen 8, including Pokemon from the Sword and Shield DLC
 
-This was done using both Python and Javascipt with a few variations
+This was done using both Python and Javascipt with a few variations.
 
 Navigate the two projects:
 
 1. [Python](/Python/)
 1. [JS](/Website/)
+
+If you want to see the Webpage in action:
+* Install the *Live Server* extension in VSCode
+* Download the repo and navigate to the home.html file
+* Right click and *Open with Live Server*
 
 ___
 # 🐍 Python
