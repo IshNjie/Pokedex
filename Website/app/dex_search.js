@@ -3,15 +3,16 @@
 const poke_container = document.getElementById('poke_container');
 
 
-function performSearch () {
-    
+// create function to perform action when button is clicked
+function performSearch() {
 
+    // retain the value from the webpage by accessing the id of the element
     const searchValue = document.getElementById('searchInput').value;
 
     console.log(searchValue) // string value
-    
+
     getPokemon(searchValue);
-    
+
 }
 
 
@@ -24,39 +25,54 @@ async function getPokemon(id) {
 }
 
 
-function createPokeEntry(pokemon){
+function createPokeEntry(pokemon) {
 
-    const dex_number = pokemon.id; 
+    /* Different from the home page because we want a new set of info to show up after every search
+    Hence why we have not added a div element or class name to a variable to access later
+    The div container will just be replaced by the innerHTML content
+    
+    
+    */
+
+    // Pokemon Attributes
+
+    const dex_number = pokemon.id;
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const poketype = pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.slice(1);
     let sec_poketype;
 
-    if(typeof pokemon.types[1] == 'undefined'){
+    if (typeof pokemon.types[1] == 'undefined') {
         sec_poketype = 'None';
-    }else {
-        sec_poketype = pokemon.types[1].type.name[0].toUpperCase() + pokemon.types[1].type.name.slice(1) ;
-        }
-    
-
-    let abilityList = []
-    for (let i=0; i<pokemon.abilities.length; i++){
-        const ability = pokemon.abilities[i].ability.name;
-        //console.log(i)
-        abilityList.push(ability[0].toUpperCase() + ability.slice(1));
-        
+    } else {
+        sec_poketype = pokemon.types[1].type.name[0].toUpperCase() + pokemon.types[1].type.name.slice(1);
     }
 
-    const abilityString = abilityList.join(', ')
+    /* Pokemon have multiple abilities
+    We will create an empty array then iterate through the abilities availible for each pokemon and append (push) to list 
     
+    */
+
+    let abilityList = []
+    for (let i = 0; i < pokemon.abilities.length; i++) {
+        const ability = pokemon.abilities[i].ability.name;
+
+        abilityList.push(ability[0].toUpperCase() + ability.slice(1));
+
+    }
+
+    // Break the list and join them into one string
+
+    const abilityString = abilityList.join(', ')
+
     let statList = []
     let statKey = []
-    for (let i=0; i<pokemon.stats.length; i++){
+    for (let i = 0; i < pokemon.stats.length; i++) {
         const base_stat = pokemon.stats[i].base_stat;
         const statName = pokemon.stats[i].stat.name;
-        //console.log(i)
+
         statList.push(base_stat);
         statKey.push(statName[0].toUpperCase() + statName.slice(1));
-        
+
     }
 
     // Page content
@@ -70,7 +86,7 @@ function createPokeEntry(pokemon){
     </div>
     
     <div class="entry">
-        <span class="number"> #${dex_number.toString().padStart(3,'0')}</span>
+        <span class="number"> #${dex_number.toString().padStart(3, '0')}</span>
         <h2 class="name"> ${name}</h2>
         <h3 class="Type"> Type: ${poketype}/${sec_poketype}</h3>
         <h3 class="Ability"> Abilities: ${abilityString}</h3>
@@ -116,11 +132,7 @@ function createPokeEntry(pokemon){
     
     </div>
     `
-
+    // add html content to the div container to render
     poke_container.innerHTML = pokeInnerHTML;
-
-    // add element and html content to the div container to render
-    //poke_container.appendChild(pokeEl);
-    console.log(poke_container)
 
 }
