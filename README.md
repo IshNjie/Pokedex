@@ -4,7 +4,7 @@ Pokedex - with PokeAPI
 Having fun with the PokeAPI - A script that allows the user to retrieve a Pokedex-like entry for a Pokemon. 
 Data supports Pokemon from Gen 1 to Gen 8, including Pokemon from the Sword and Shield DLC
 
-This was done using both Python and Javascipt
+This was done using both Python and Javascipt with a few variations
 
 Navigate the two projects:
 
@@ -83,6 +83,10 @@ ___
 
 1. Create a function *createPokeCard* to take the json response, parse it and assign values to appropriate variables. The innerHTML method allows us to set HTML content for an element in JS. 
 
+![home screen](/imgs/home.png)
+
 ### PokeDex Search
 
 1. Create a function *performSearch* that is call the *getPokemon* function once the search button is clicked
+
+![search](/imgs/373.png)
