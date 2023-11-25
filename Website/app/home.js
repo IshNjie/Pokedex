@@ -40,7 +40,11 @@ For how many pokemon you wish to return
 // function name = getPokemon
 const getPokemon = async id => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    
+    // The `await` key word will pause the execution and evaluate the value brought back. 
     const result = await fetch(url);
+
+     // Target the result and turn into json response
     const pokemon = await result.json();
     console.log(pokemon)
     createPokeCard(pokemon);
@@ -73,6 +77,8 @@ function createPokeCard(pokemon){
     const dex_number = pokemon.id;
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const poketype = pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.slice(1);
+    
+    // some Pokemon have multiple types 
     let sec_poketype;
 
     if(typeof pokemon.types[1] == 'undefined'){
@@ -81,6 +87,7 @@ function createPokeCard(pokemon){
         sec_poketype = pokemon.types[1].type.name[0].toUpperCase() + pokemon.types[1].type.name.slice(1) ;
         }
     
+    // Assign colours to the primary pokemon types for the background of the card
     const colour = colors[poketype.toLowerCase()];
     pokeEl.style.backgroundColor = colour;
     
