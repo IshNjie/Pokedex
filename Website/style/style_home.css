@@ -3,9 +3,10 @@
 /* Accessing via class name, put . before the name of the class */
 
 body {
-	background: #EFEFBB;
+	/* background: #EFEFBB; */
 	/*background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);*/
-	background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+	/*background: linear-gradient(to right, #D4D3DD, #EFEFBB);*/
+	background: linear-gradient(to right, rgb(115, 115, 243), rgb(115, 243, 115), rgb(243, 115, 115));
 
 	display: flex;
 	flex-direction: column;
