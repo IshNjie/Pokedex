@@ -7,7 +7,18 @@ const poke_container = document.getElementById('poke_container');
 function performSearch() {
 
     // retain the value from the webpage by accessing the id of the element
-    const searchValue = document.getElementById('searchInput').value;
+    const searchEntry = document.getElementById('searchInput').value;
+
+    // Allow Search via Name or Dex Number
+    let searchValue;
+
+    // Test Entry is string (Pokemon Name) or number (Dex ID)
+    if (typeof searchEntry == 'string'){
+        searchValue = searchEntry.toLowerCase();
+    } else {
+        searchValue = searchEntry;
+
+    }
 
     console.log(searchValue) // string value
 
