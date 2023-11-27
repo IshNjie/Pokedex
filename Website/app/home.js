@@ -7,7 +7,7 @@ https://www.youtube.com/watch?v=XL68br6JyYs&list=PLYbEljNSZ6jnDfFvcoh59s6lzg5NXo
 const poke_container = document.getElementById('poke_container_home');
 
 // target the amount of pokemon I want to retrieve
-const pokemon_number = 493;
+const pokemon_number = 151;
 
 // Assign hex colours to each type to colour the card
 const colors = {
