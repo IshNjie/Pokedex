@@ -40,8 +40,6 @@ h1 {
 
 .pokemon:hover {
     color: rgba(3, 213, 255, 0.834);
-    background-color: black;
-    /* Add other styles as needed */
 }
 
 .pokemon .img-container {
