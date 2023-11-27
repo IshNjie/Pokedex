@@ -19,7 +19,8 @@ function performSearch() {
         searchValue = searchEntry;
 
     }
-
+    document.getElementById('searchInput').value = '';
+    
     console.log(searchValue) // string value
 
     getPokemon(searchValue);
@@ -87,6 +88,7 @@ function createPokeEntry(pokemon) {
     }
 
     // Page content
+    // tr element created a shell of a row and column elements to add
     const pokeInnerHTML = `
     
 
