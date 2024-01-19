@@ -4,7 +4,12 @@ import { TextInput, StyleSheet, Button, View } from "react-native"
 
 const DexInput = ( {dexSearch} ) => {
     const [input, setInput] = useState('')
-44
+
+    const handleInput = (val) =>{
+        setInput(val)
+
+    }
+
     return (
 
         <View>
@@ -13,10 +18,8 @@ const DexInput = ( {dexSearch} ) => {
             style = {styles.input}
             placeholder=" Dex Number"
             value= {input}
-            onChangeText={(input) => setInput(input)}
-            
+            onChangeText={handleInput}
             />
-
             <Button onPress={() => dexSearch(input)} title = 'Search'/>
         </View>
     )
@@ -27,13 +30,12 @@ const DexInput = ( {dexSearch} ) => {
 const styles = StyleSheet.create({
 
     input:{
-        marginBottom: 10,
         paddingHorizontal: 8,
         paddingVertical: 8,
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
         borderWidth : 1,
-        width: '100%',
+     
   
     }
   })
