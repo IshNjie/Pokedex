@@ -56,8 +56,14 @@ const createPokemon = () => {
 
 
   const dexSearch = (input) => {
+    let value
     if(input){
-      getPokemon(input)
+      if(typeof input == 'string'){
+        value = input.toLowerCase() 
+      } else{
+        value = input
+      }
+      getPokemon(value)
       
     }
     
@@ -70,11 +76,13 @@ const createPokemon = () => {
   return (
     <View>
     <Header />
+    <View style = {styles.content}>
       <DexInput dexSearch={dexSearch}/>
+      </View>
       <View style={styles.container}>
         {createPokemon()}
-  
-    </View>
+      </View>
+    
     </View>
   );
 }
@@ -82,6 +90,13 @@ const createPokemon = () => {
 
 
 const styles = StyleSheet.create({
+  content: {
+    padding:40,
+    //justifyContent:'center',
+    alignSelf:'center',
+    width:'75%'
+  },
+
   container: {
     flex: 1,
     backgroundColor: '#E4D00A',
