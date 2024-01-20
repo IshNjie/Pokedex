@@ -13,25 +13,33 @@ export default function App() {
   // Set up API data retreival
   const getPokemon = async(id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    // The `await` key word will pause the execution and evaluate the value brought back.
     const result = await fetch (url)
     const pokemon = await result.json()
     console.log(pokemon)
+
+    //Update the mon variable with the Json object form the given input
     setMon(pokemon)
 
   }
 
+  // Render Pokemon image
   const createPokemon = () => {
+    // set condition if the mon is updated from ''
     if(mon){
       const dex_number = mon.id
-      console.log(dex_number)
+      ///console.log(dex_number)
       const name = mon.name[0].toUpperCase() + mon.name.slice(1)
-      console.log(name)
+      //console.log(name)
       const poketype = mon.types[0].type.name[0].toUpperCase() + mon.types[0].type.name.slice(1);
       //
       const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${dex_number}.png`
 
+      // Colours are defined in another component as an object and this will retrieve the correct colour for a given type
       const colour = colors[poketype.toLowerCase()];
-      console.log(colour)
+
+      // This will be rendered on the screen
+
       return (
 
         <View style={styles.pokemon}>
@@ -40,17 +48,14 @@ export default function App() {
           source = {{
             uri: img,
           }}
-
           />
         </View>
       )
-    
-
     }
-
   }
 
-
+  // This handles the input
+  
   const dexSearch = (input) => {
     let value
     if(input){
