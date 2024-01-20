@@ -35,5 +35,3 @@ npx expo start
 ```
 
 I'll then press Shift I to select the iOS simulator I want to use. For this, you need XCode installed.
-
-https://gomakethings.com/whats-the-best-way-to-document-javascript/
