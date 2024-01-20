@@ -7,13 +7,11 @@ import { colors } from './components/styles';
 
 export default function App() {
   const [mon, setMon] = useState('') //json object output
-  //const [dex, setDex] = useState('') // dexnumber
-  const [type, setType] = useState('')
 
   // handle inputs
 
   // Set up API data retreival
-const getPokemon = async(id) => {
+  const getPokemon = async(id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const result = await fetch (url)
     const pokemon = await result.json()
@@ -22,37 +20,35 @@ const getPokemon = async(id) => {
 
   }
 
-const createPokemon = () => {
-  if(mon){
-    const dex_number = mon.id
-    console.log(dex_number)
-    const name = mon.name[0].toUpperCase() + mon.name.slice(1)
-    console.log(name)
-    const poketype = mon.types[0].type.name[0].toUpperCase() + mon.types[0].type.name.slice(1);
-    //
-    const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${dex_number}.png`
+  const createPokemon = () => {
+    if(mon){
+      const dex_number = mon.id
+      console.log(dex_number)
+      const name = mon.name[0].toUpperCase() + mon.name.slice(1)
+      console.log(name)
+      const poketype = mon.types[0].type.name[0].toUpperCase() + mon.types[0].type.name.slice(1);
+      //
+      const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${dex_number}.png`
 
-    const colour = colors[poketype.toLowerCase()];
-    console.log(colour)
-    return (
+      const colour = colors[poketype.toLowerCase()];
+      console.log(colour)
+      return (
 
-      <View style={styles.pokemon}>
-        <Image
-        style={[styles.pkImage, {backgroundColor:colour}]}
-        source = {{
-          uri: img,
-        }}
-        
-        />
-      </View>
-    )
+        <View style={styles.pokemon}>
+          <Image
+          style={[styles.pkImage, {backgroundColor:colour}]}
+          source = {{
+            uri: img,
+          }}
+
+          />
+        </View>
+      )
     
 
+    }
+
   }
-
-  
-
-}
 
 
   const dexSearch = (input) => {
