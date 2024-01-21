@@ -50,17 +50,11 @@ export const styles = StyleSheet.create({
 	pkImage:{
 	  width:200,
 	  height:200,
-	  borderRadius: 10,
-	  overflow: 'hidden'
+	  //borderRadius: 10,
+	  //overflow: 'hidden'
   
 	},
-	name:{
-	  padding:10,
-	  textAlign: 'center',
-	  color: 'black',
-	  fontSize: 20,
-	  fontWeight: 'bold'
-	},
+	
   
 	itemContainer: {
 	  marginHorizontal: 10,
@@ -75,7 +69,37 @@ export const styles = StyleSheet.create({
 	  fontSize: 18,
 	  marginBottom: 8,
 	  color:'black'
-	}
+	},
+	pkTitle: {
+		flexDirection: 'row', // Arrange children in a row
+		justifyContent: 'space-between', // Space items evenly
+		//padding: 10,
+	  },
+	  textContainer: {
+		flex: 1, // Each text container takes equal space
+		marginHorizontal: 0,
+	  },
+	  name:{
+		padding:10,
+		textAlign: 'center',
+		color: 'black',
+		fontSize: 20,
+		fontWeight: 'bold'
+	  },
+	  dex :{
+		padding:5,
+		textAlign: 'center',
+		color: 'black',
+		fontSize: 20,
+		fontStyle: 'italic',
+		backgroundColor: '#C0C0C0', // Background color for the bubble
+    	borderRadius: 10, // Border radius for rounded corners
+		marginTop:5,
+		marginHorizontal:60,
+		overflow:'hidden'
+
+	  }
+	  
   });
   
 
