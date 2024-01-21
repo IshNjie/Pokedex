@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import Header from './components/header';
 import DexInput from './components/dexInput';
 import { useState } from 'react';
-import { colors } from './components/styles';
+import { colors, styles } from './components/styles';
+import ProgressBar from 'react-native-progress/Bar'
 
 
 
@@ -29,6 +30,7 @@ export default function App() {
     // set condition if the mon is updated from ''
     if(mon){
       const dex_number = mon.id
+      const format_dex = `#${dex_number.toString().padStart(3,'0')}`
       ///console.log(dex_number)
       const name = mon.name[0].toUpperCase() + mon.name.slice(1)
       //console.log(name)
@@ -59,22 +61,25 @@ export default function App() {
         name:statKey[index],
         data:value
       }
-
-
     }
-    )
-    console.log(data[0].data)
-
-    
+  )
 
       
     return (
-      <View>
-        <Text style={styles.name}>{name}</Text>
+      <View >
 
-        <View style={styles.pokemon}>
+        <View style={styles.pkTitle}>
+          <View style={[styles.textContainer, { backgroundColor: colour }]}>
+            <Text style={styles.name}>{name}</Text>
+          </View>
+          <View style={[styles.textContainer, { backgroundColor: colour }]}>
+            <Text style={styles.dex}>{format_dex}</Text>
+          </View>
+        </View>
+        
+        <View style={[styles.pokemon, { backgroundColor: colour }]}>
           <Image
-            style={[styles.pkImage, { backgroundColor: colour }]}
+            style={styles.pkImage}
             source={{
               uri: img,
             }}
@@ -96,8 +101,15 @@ export default function App() {
 
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{item.name}:{item.data}</Text>
-      </View>
+      <Text>{item.name}: {item.data}</Text>
+      <ProgressBar 
+      progress={item.data/255}
+      width={null}
+      height={10}
+      useNativeDriver={true}
+
+      />
+    </View>
   );
 
 
@@ -122,12 +134,12 @@ export default function App() {
 
   // Render
   return (
-    <View>
+    <View >
     <Header />
-    <View style = {styles.input}>
+    <View >
       <DexInput dexSearch={dexSearch}/>
       </View>
-      <View style={styles.container}>
+      <View>
         {createPokemon()}
       </View>
     </View>
@@ -135,57 +147,3 @@ export default function App() {
 }
 
 
-
-const styles = StyleSheet.create({
-  app:{
-    //backgroundColor:'pink'
-
-  },
-  input: {
-    padding:30,
-    marginBottom:-40,
-    alignSelf:'center',
-    width:'60%',
-  },
-
-  container: {
-    marginTop:0,
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor:'black',
-  },
-
-  pokemon: {
-    padding:1,
-  },
-
-  pkImage:{
-    width:200,
-    height:200,
-    borderRadius: 10,
-    overflow: 'hidden'
-
-  },
-  name:{
-    padding:40,
-    textAlign: 'center',
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-
-  itemContainer: {
-    marginHorizontal: 10,
-    marginTop: 14,
-    padding: 20,
-    backgroundColor: '#E0BBE4',
-    fontSize: 14,
-    borderRadius: 10,
-    overflow: 'hidden'
-  },
-  itemText: {
-    fontSize: 18,
-    marginBottom: 8,
-    color:'black'
-  }
-});
