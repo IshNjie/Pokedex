@@ -23,22 +23,6 @@ export const colors = {
 
 
 export const styles = StyleSheet.create({
-	app:{
-	},
-	input: {
-	  padding:30,
-	  marginBottom:-40,
-	  alignSelf:'center',
-	  width:'60%',
-	},
-  
-	container: {
-	  marginTop:0,
-	  flex: 1,
-	  alignItems: 'center',
-	  backgroundColor:'black',
-	},
-  
 	pokemon: {
 	  height:'100%',
 	  width:'100%',
@@ -50,26 +34,8 @@ export const styles = StyleSheet.create({
 	pkImage:{
 	  width:200,
 	  height:200,
-	  //borderRadius: 10,
-	  //overflow: 'hidden'
-  
 	},
 	
-  
-	itemContainer: {
-	  marginHorizontal: 10,
-	  marginTop: 14,
-	  padding: 20,
-	  backgroundColor: '#E0BBE4',
-	  fontSize: 14,
-	  borderRadius: 10,
-	  overflow: 'hidden'
-	},
-	itemText: {
-	  fontSize: 18,
-	  marginBottom: 8,
-	  color:'black'
-	},
 	pkTitle: {
 		flexDirection: 'row', // Arrange children in a row
 		justifyContent: 'space-between', // Space items evenly
@@ -97,8 +63,24 @@ export const styles = StyleSheet.create({
 		marginTop:5,
 		marginHorizontal:60,
 		overflow:'hidden'
+	  },
 
-	  }
+	    
+	itemContainer: {
+		//marginHorizontal: 10,
+		marginTop: 4,
+		padding: 10,
+		//backgroundColor: '#E0BBE4',
+		fontSize: 14,
+		borderRadius: 10,
+		overflow: 'hidden',
+		width:200
+	  },
+	  itemText: {
+		fontSize: 18,
+		marginBottom: 8,
+		color:'black'
+	  },
 	  
   });
   
