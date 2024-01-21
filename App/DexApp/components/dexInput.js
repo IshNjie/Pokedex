@@ -16,7 +16,7 @@ const DexInput = ( {dexSearch} ) => {
 
             <TextInput 
             style = {styles.input}
-            placeholder=" Dex Number"
+            placeholder=" Dex Number or Pokemon Name"
             value= {input}
             onChangeText={handleInput}
             />
