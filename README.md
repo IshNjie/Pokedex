@@ -122,3 +122,7 @@ const [mon, setMon] = useState('')
 ```
 
 - Here, the `useState` hook allows us to define the value of our output: _mon_, which will be a json object from out API. The _setMon_ element is a function, that will be called to update the value after a given input. The input from the user will be a number (dex Number) or the name of the Pokemon
+
+| Charizard via Dex Number |  Pikachu via Name  |
+| :----------------------: | :----------------: |
+|    ![](imgs/Char.png)    | ![](imgs/Pika.png) |
