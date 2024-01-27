@@ -24,26 +24,26 @@ export const colors = {
 
 export const styles = StyleSheet.create({
 	pokemon: {
-	  height:'100%',
+	  height:'30%',
 	  width:'100%',
-	  justifyContent: 'center',
-	  alignItems: 'center',
-	  padding:90
+	  padding:90,
+	  alignItems:'center',
+	  flexDirection: 'row',
+	  paddingHorizontal: 16,
 	},
   
 	pkImage:{
-	  width:200,
-	  height:200,
+	  width:150,
+	  height:150,
 	},
 	
 	pkTitle: {
 		flexDirection: 'row', // Arrange children in a row
 		justifyContent: 'space-between', // Space items evenly
-		//padding: 10,
 	  },
 	  textContainer: {
 		flex: 1, // Each text container takes equal space
-		marginHorizontal: 0,
+		//marginHorizontal: 0,
 	  },
 	  name:{
 		padding:10,
@@ -66,21 +66,27 @@ export const styles = StyleSheet.create({
 	  },
 
 	    
-	itemContainer: {
-		//marginHorizontal: 10,
-		marginTop: 4,
-		padding: 10,
-		//backgroundColor: '#E0BBE4',
+	statsContainer: {
+		flex:0,
+		height: 53,
+		justifyContent: 'flex-start',
 		fontSize: 14,
-		borderRadius: 10,
-		overflow: 'hidden',
-		width:200
+		paddingHorizontal: 16,
+		marginBottom: 20
 	  },
-	  itemText: {
-		fontSize: 18,
-		marginBottom: 8,
-		color:'black'
-	  },
+	types:{
+
+		fontSize: 20,
+		fontWeight: 'bold',
+		paddingBottom: 20
+	},
+	abilities:{
+
+		fontSize: 15,
+		fontWeight: '500',
+
+	}
+	
 	  
   });
   
