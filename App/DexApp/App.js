@@ -29,12 +29,34 @@ export default function App() {
   const createPokemon = () => {
     // set condition if the mon is updated from ''
     if(mon){
+
+      //Pokemon Attributes
       const dex_number = mon.id
-      const format_dex = `#${dex_number.toString().padStart(3,'0')}`
-      ///console.log(dex_number)
-      const name = mon.name[0].toUpperCase() + mon.name.slice(1)
-      //console.log(name)
+      const format_dex = `#${dex_number.toString().padStart(3,'0')}` // #001 for Dex number
+      const name = mon.name[0].toUpperCase() + mon.name.slice(1) // Capitalise Name
+
+      // Pokemon types - Pokemon can have two types
       const poketype = mon.types[0].type.name[0].toUpperCase() + mon.types[0].type.name.slice(1);
+
+      let sec_poketype;
+
+      if (typeof mon.types[1] == 'undefined') {
+        sec_poketype = null;
+      } else {
+        sec_poketype = `/${mon.types[1].type.name[0].toUpperCase() + mon.types[1].type.name.slice(1)}`;
+      }
+
+      let abilityList = []
+      for (let i = 0; i < mon.abilities.length; i++) {
+        const ability = mon.abilities[i].ability.name;
+
+        abilityList.push(ability[0].toUpperCase() + ability.slice(1));
+
+      }
+      // Break the list and join them into one string
+
+      const abilityString = abilityList.join(', ')
+
       
       const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${dex_number}.png`
 
@@ -49,12 +71,13 @@ export default function App() {
         const statName = mon.stats[i].stat.name;
 
         statList.push(base_stat);
-        statKey.push(statName[0].toUpperCase() + statName.slice(1));
+        statKey.push(statName.toUpperCase())//[0].toUpperCase() + statName.slice(1));
 
     }
-    console.log(statKey)
-    console.log(statList)
+    //console.log(statKey)
+    //console.log(statList)
 
+    //Stats Data to render
     const data = statList.map((value,index) => {
       return {
         id:(index +1).toString(),
@@ -85,13 +108,28 @@ export default function App() {
             }}
           />
           <View>
-            <FlatList
+          <Text style={styles.types}>Type: {poketype}{sec_poketype}</Text>
+          
+          <Text style={styles.abilities}>Abilities: </Text>
+          <View>
+            {abilityList.map((item,index) =>(
+              <Text key={index} > {index + 1}. {item}</Text>
+
+            ))}
+          </View>
+          </View>
+
+          
+        </View>
+          <View style = {[,{backgroundColor: colour}]}>
+          <FlatList
               data={data}
               keyExtractor={(item) => item.id}
               renderItem={renderItem}
             />
+            
           </View>
-        </View>
+        
       </View>
     );
     
@@ -100,12 +138,12 @@ export default function App() {
   }
 
   const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Text>{item.name}: {item.data}</Text>
+    <View style={styles.statsContainer}>
+      <Text >{item.name}: {item.data}</Text>
       <ProgressBar 
       progress={item.data/255}
       width={null}
-      height={10}
+      height={15}
       useNativeDriver={true}
 
       />
@@ -139,7 +177,7 @@ export default function App() {
     <View >
       <DexInput dexSearch={dexSearch}/>
       </View>
-      <View>
+      <View >
         {createPokemon()}
       </View>
     </View>
