@@ -16,12 +16,20 @@ export default function App() {
   const getPokemon = async(id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     // The `await` key word will pause the execution and evaluate the value brought back.
+    try {
+
     const result = await fetch (url)
     const pokemon = await result.json()
     console.log(pokemon)
 
+
     //Update the mon variable with the Json object form the given input
     setMon(pokemon)
+    }
+    catch(err){
+      
+      setMon('')
+    }
 
   }
 
